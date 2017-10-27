@@ -1,0 +1,677 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F40AC2A71F9CD23F004F78EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40AC2A61F9CD23F004F78EA /* AppDelegate.m */; };
+		F40AC2AA1F9CD23F004F78EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40AC2A91F9CD23F004F78EA /* ViewController.m */; };
+		F40AC2AD1F9CD23F004F78EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40AC2AB1F9CD23F004F78EA /* Main.storyboard */; };
+		F40AC2AF1F9CD23F004F78EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F40AC2AE1F9CD23F004F78EA /* Assets.xcassets */; };
+		F40AC2B21F9CD23F004F78EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40AC2B01F9CD23F004F78EA /* LaunchScreen.storyboard */; };
+		F40AC2B51F9CD23F004F78EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F40AC2B41F9CD23F004F78EA /* main.m */; };
+		F40AC2C11F9CD31E004F78EA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40AC2BF1F9CD31E004F78EA /* Interface.storyboard */; };
+		F40AC2C31F9CD31F004F78EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F40AC2C21F9CD31F004F78EA /* Assets.xcassets */; };
+		F40AC2CA1F9CD31F004F78EA /* Care Alert POC Watch App Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F40AC2C91F9CD31F004F78EA /* Care Alert POC Watch App Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F40AC2D01F9CD31F004F78EA /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40AC2CF1F9CD31F004F78EA /* InterfaceController.m */; };
+		F40AC2D31F9CD31F004F78EA /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40AC2D21F9CD31F004F78EA /* ExtensionDelegate.m */; };
+		F40AC2D61F9CD31F004F78EA /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40AC2D51F9CD31F004F78EA /* NotificationController.m */; };
+		F40AC2D81F9CD31F004F78EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F40AC2D71F9CD31F004F78EA /* Assets.xcassets */; };
+		F40AC2DD1F9CD31F004F78EA /* Care Alert POC Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F40AC2BD1F9CD31E004F78EA /* Care Alert POC Watch App.app */; };
+		F495149C1FA3136F00E88F0D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F495149B1FA3136F00E88F0D /* Constants.m */; };
+		F495149D1FA3136F00E88F0D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F495149B1FA3136F00E88F0D /* Constants.m */; };
+		F49514A01FA3B37C00E88F0D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F495149F1FA3B37C00E88F0D /* CoreLocation.framework */; };
+		F49514A21FA3B39100E88F0D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49514A11FA3B39000E88F0D /* CoreMotion.framework */; };
+		F49514A41FA3B39F00E88F0D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49514A31FA3B39F00E88F0D /* HealthKit.framework */; };
+		F49514A61FA3B3A600E88F0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49514A51FA3B3A600E88F0D /* Foundation.framework */; };
+		F49514A91FA3BC5E00E88F0D /* ResponseTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = F49514A81FA3BC5E00E88F0D /* ResponseTracker.m */; };
+		F49514AA1FA3BC5E00E88F0D /* ResponseTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = F49514A81FA3BC5E00E88F0D /* ResponseTracker.m */; };
+		F49514AF1FA3D4D900E88F0D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49514AE1FA3D4D900E88F0D /* HealthKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F40AC2CB1F9CD31F004F78EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F40AC29A1F9CD23F004F78EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F40AC2C81F9CD31F004F78EA;
+			remoteInfo = "Care Alert POC Watch App Extension";
+		};
+		F40AC2DB1F9CD31F004F78EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F40AC29A1F9CD23F004F78EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F40AC2BC1F9CD31E004F78EA;
+			remoteInfo = "Care Alert POC Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F40AC2E11F9CD31F004F78EA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F40AC2CA1F9CD31F004F78EA /* Care Alert POC Watch App Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F40AC2E51F9CD31F004F78EA /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F40AC2DD1F9CD31F004F78EA /* Care Alert POC Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F40AC2A21F9CD23F004F78EA /* Care Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Care Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F40AC2A51F9CD23F004F78EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F40AC2A61F9CD23F004F78EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F40AC2A81F9CD23F004F78EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F40AC2A91F9CD23F004F78EA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F40AC2AC1F9CD23F004F78EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F40AC2AE1F9CD23F004F78EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F40AC2B11F9CD23F004F78EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F40AC2B31F9CD23F004F78EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F40AC2B41F9CD23F004F78EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F40AC2BD1F9CD31E004F78EA /* Care Alert POC Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Care Alert POC Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F40AC2C01F9CD31E004F78EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		F40AC2C21F9CD31F004F78EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F40AC2C41F9CD31F004F78EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F40AC2C91F9CD31F004F78EA /* Care Alert POC Watch App Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Care Alert POC Watch App Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F40AC2CE1F9CD31F004F78EA /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		F40AC2CF1F9CD31F004F78EA /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		F40AC2D11F9CD31F004F78EA /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		F40AC2D21F9CD31F004F78EA /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		F40AC2D41F9CD31F004F78EA /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		F40AC2D51F9CD31F004F78EA /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		F40AC2D71F9CD31F004F78EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F40AC2D91F9CD31F004F78EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F40AC2DA1F9CD31F004F78EA /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		F495149A1FA3136F00E88F0D /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F495149B1FA3136F00E88F0D /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F495149F1FA3B37C00E88F0D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F49514A11FA3B39000E88F0D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		F49514A31FA3B39F00E88F0D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		F49514A51FA3B3A600E88F0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F49514A71FA3BC5E00E88F0D /* ResponseTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponseTracker.h; sourceTree = "<group>"; };
+		F49514A81FA3BC5E00E88F0D /* ResponseTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseTracker.m; sourceTree = "<group>"; };
+		F49514AC1FA3D3C600E88F0D /* Care Alert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Care Alert.entitlements"; sourceTree = "<group>"; };
+		F49514AD1FA3D4D900E88F0D /* Care Alert POC Watch App Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Care Alert POC Watch App Extension.entitlements"; sourceTree = "<group>"; };
+		F49514AE1FA3D4D900E88F0D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F40AC29F1F9CD23F004F78EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49514A61FA3B3A600E88F0D /* Foundation.framework in Frameworks */,
+				F49514A41FA3B39F00E88F0D /* HealthKit.framework in Frameworks */,
+				F49514A21FA3B39100E88F0D /* CoreMotion.framework in Frameworks */,
+				F49514A01FA3B37C00E88F0D /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F40AC2C61F9CD31F004F78EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49514AF1FA3D4D900E88F0D /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F40AC2991F9CD23F004F78EA = {
+			isa = PBXGroup;
+			children = (
+				F40AC2A41F9CD23F004F78EA /* Care Alert */,
+				F40AC2BE1F9CD31E004F78EA /* Care Alert POC Watch App */,
+				F40AC2CD1F9CD31F004F78EA /* Care Alert POC Watch App Extension */,
+				F40AC2A31F9CD23F004F78EA /* Products */,
+				F495149E1FA3B37C00E88F0D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F40AC2A31F9CD23F004F78EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F40AC2A21F9CD23F004F78EA /* Care Alert.app */,
+				F40AC2BD1F9CD31E004F78EA /* Care Alert POC Watch App.app */,
+				F40AC2C91F9CD31F004F78EA /* Care Alert POC Watch App Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F40AC2A41F9CD23F004F78EA /* Care Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F49514AC1FA3D3C600E88F0D /* Care Alert.entitlements */,
+				F40AC2A51F9CD23F004F78EA /* AppDelegate.h */,
+				F40AC2A61F9CD23F004F78EA /* AppDelegate.m */,
+				F40AC2A81F9CD23F004F78EA /* ViewController.h */,
+				F40AC2A91F9CD23F004F78EA /* ViewController.m */,
+				F40AC2AB1F9CD23F004F78EA /* Main.storyboard */,
+				F40AC2AE1F9CD23F004F78EA /* Assets.xcassets */,
+				F40AC2B01F9CD23F004F78EA /* LaunchScreen.storyboard */,
+				F40AC2B31F9CD23F004F78EA /* Info.plist */,
+				F40AC2B41F9CD23F004F78EA /* main.m */,
+			);
+			path = "Care Alert";
+			sourceTree = "<group>";
+		};
+		F40AC2BE1F9CD31E004F78EA /* Care Alert POC Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				F40AC2BF1F9CD31E004F78EA /* Interface.storyboard */,
+				F40AC2C21F9CD31F004F78EA /* Assets.xcassets */,
+				F40AC2C41F9CD31F004F78EA /* Info.plist */,
+			);
+			path = "Care Alert POC Watch App";
+			sourceTree = "<group>";
+		};
+		F40AC2CD1F9CD31F004F78EA /* Care Alert POC Watch App Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F49514AD1FA3D4D900E88F0D /* Care Alert POC Watch App Extension.entitlements */,
+				F40AC2CE1F9CD31F004F78EA /* InterfaceController.h */,
+				F40AC2CF1F9CD31F004F78EA /* InterfaceController.m */,
+				F40AC2D11F9CD31F004F78EA /* ExtensionDelegate.h */,
+				F40AC2D21F9CD31F004F78EA /* ExtensionDelegate.m */,
+				F40AC2D41F9CD31F004F78EA /* NotificationController.h */,
+				F40AC2D51F9CD31F004F78EA /* NotificationController.m */,
+				F495149A1FA3136F00E88F0D /* Constants.h */,
+				F495149B1FA3136F00E88F0D /* Constants.m */,
+				F49514A71FA3BC5E00E88F0D /* ResponseTracker.h */,
+				F49514A81FA3BC5E00E88F0D /* ResponseTracker.m */,
+				F40AC2D71F9CD31F004F78EA /* Assets.xcassets */,
+				F40AC2D91F9CD31F004F78EA /* Info.plist */,
+				F40AC2DA1F9CD31F004F78EA /* PushNotificationPayload.apns */,
+			);
+			path = "Care Alert POC Watch App Extension";
+			sourceTree = "<group>";
+		};
+		F495149E1FA3B37C00E88F0D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F49514AE1FA3D4D900E88F0D /* HealthKit.framework */,
+				F49514A51FA3B3A600E88F0D /* Foundation.framework */,
+				F49514A31FA3B39F00E88F0D /* HealthKit.framework */,
+				F49514A11FA3B39000E88F0D /* CoreMotion.framework */,
+				F495149F1FA3B37C00E88F0D /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F40AC2A11F9CD23F004F78EA /* Care Alert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F40AC2B81F9CD23F004F78EA /* Build configuration list for PBXNativeTarget "Care Alert" */;
+			buildPhases = (
+				F40AC29E1F9CD23F004F78EA /* Sources */,
+				F40AC29F1F9CD23F004F78EA /* Frameworks */,
+				F40AC2A01F9CD23F004F78EA /* Resources */,
+				F40AC2E51F9CD31F004F78EA /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F40AC2DC1F9CD31F004F78EA /* PBXTargetDependency */,
+			);
+			name = "Care Alert";
+			productName = "Care Alert";
+			productReference = F40AC2A21F9CD23F004F78EA /* Care Alert.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F40AC2BC1F9CD31E004F78EA /* Care Alert POC Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F40AC2E21F9CD31F004F78EA /* Build configuration list for PBXNativeTarget "Care Alert POC Watch App" */;
+			buildPhases = (
+				F40AC2BB1F9CD31E004F78EA /* Resources */,
+				F40AC2E11F9CD31F004F78EA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F40AC2CC1F9CD31F004F78EA /* PBXTargetDependency */,
+			);
+			name = "Care Alert POC Watch App";
+			productName = "Care Alert POC Watch App";
+			productReference = F40AC2BD1F9CD31E004F78EA /* Care Alert POC Watch App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		F40AC2C81F9CD31F004F78EA /* Care Alert POC Watch App Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F40AC2DE1F9CD31F004F78EA /* Build configuration list for PBXNativeTarget "Care Alert POC Watch App Extension" */;
+			buildPhases = (
+				F40AC2C51F9CD31F004F78EA /* Sources */,
+				F40AC2C61F9CD31F004F78EA /* Frameworks */,
+				F40AC2C71F9CD31F004F78EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Care Alert POC Watch App Extension";
+			productName = "Care Alert POC Watch App Extension";
+			productReference = F40AC2C91F9CD31F004F78EA /* Care Alert POC Watch App Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F40AC29A1F9CD23F004F78EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "M-Phi Innovators LLC";
+				TargetAttributes = {
+					F40AC2A11F9CD23F004F78EA = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					F40AC2BC1F9CD31E004F78EA = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					F40AC2C81F9CD31F004F78EA = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = F40AC29D1F9CD23F004F78EA /* Build configuration list for PBXProject "Care Alert" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F40AC2991F9CD23F004F78EA;
+			productRefGroup = F40AC2A31F9CD23F004F78EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F40AC2A11F9CD23F004F78EA /* Care Alert */,
+				F40AC2BC1F9CD31E004F78EA /* Care Alert POC Watch App */,
+				F40AC2C81F9CD31F004F78EA /* Care Alert POC Watch App Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F40AC2A01F9CD23F004F78EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40AC2B21F9CD23F004F78EA /* LaunchScreen.storyboard in Resources */,
+				F40AC2AF1F9CD23F004F78EA /* Assets.xcassets in Resources */,
+				F40AC2AD1F9CD23F004F78EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F40AC2BB1F9CD31E004F78EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40AC2C31F9CD31F004F78EA /* Assets.xcassets in Resources */,
+				F40AC2C11F9CD31E004F78EA /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F40AC2C71F9CD31F004F78EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40AC2D81F9CD31F004F78EA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F40AC29E1F9CD23F004F78EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49514A91FA3BC5E00E88F0D /* ResponseTracker.m in Sources */,
+				F40AC2AA1F9CD23F004F78EA /* ViewController.m in Sources */,
+				F40AC2B51F9CD23F004F78EA /* main.m in Sources */,
+				F40AC2A71F9CD23F004F78EA /* AppDelegate.m in Sources */,
+				F495149C1FA3136F00E88F0D /* Constants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F40AC2C51F9CD31F004F78EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49514AA1FA3BC5E00E88F0D /* ResponseTracker.m in Sources */,
+				F40AC2D31F9CD31F004F78EA /* ExtensionDelegate.m in Sources */,
+				F40AC2D01F9CD31F004F78EA /* InterfaceController.m in Sources */,
+				F40AC2D61F9CD31F004F78EA /* NotificationController.m in Sources */,
+				F495149D1FA3136F00E88F0D /* Constants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F40AC2CC1F9CD31F004F78EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F40AC2C81F9CD31F004F78EA /* Care Alert POC Watch App Extension */;
+			targetProxy = F40AC2CB1F9CD31F004F78EA /* PBXContainerItemProxy */;
+		};
+		F40AC2DC1F9CD31F004F78EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F40AC2BC1F9CD31E004F78EA /* Care Alert POC Watch App */;
+			targetProxy = F40AC2DB1F9CD31F004F78EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F40AC2AB1F9CD23F004F78EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F40AC2AC1F9CD23F004F78EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F40AC2B01F9CD23F004F78EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F40AC2B11F9CD23F004F78EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F40AC2BF1F9CD31E004F78EA /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F40AC2C01F9CD31E004F78EA /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F40AC2B61F9CD23F004F78EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F40AC2B71F9CD23F004F78EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F40AC2B91F9CD23F004F78EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Care Alert/Care Alert.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P3TYU8KSY;
+				INFOPLIST_FILE = "Care Alert/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carealert.CareAlert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F40AC2BA1F9CD23F004F78EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Care Alert/Care Alert.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P3TYU8KSY;
+				INFOPLIST_FILE = "Care Alert/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carealert.CareAlert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F40AC2DF1F9CD31F004F78EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Care Alert POC Watch App Extension/Care Alert POC Watch App Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P3TYU8KSY;
+				INFOPLIST_FILE = "Care Alert POC Watch App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carealert.CareAlert.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		F40AC2E01F9CD31F004F78EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Care Alert POC Watch App Extension/Care Alert POC Watch App Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P3TYU8KSY;
+				INFOPLIST_FILE = "Care Alert POC Watch App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carealert.CareAlert.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		F40AC2E31F9CD31F004F78EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P3TYU8KSY;
+				IBSC_MODULE = Care_Alert_POC_Watch_App_Extension;
+				INFOPLIST_FILE = "Care Alert POC Watch App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carealert.CareAlert.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		F40AC2E41F9CD31F004F78EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P3TYU8KSY;
+				IBSC_MODULE = Care_Alert_POC_Watch_App_Extension;
+				INFOPLIST_FILE = "Care Alert POC Watch App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carealert.CareAlert.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F40AC29D1F9CD23F004F78EA /* Build configuration list for PBXProject "Care Alert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40AC2B61F9CD23F004F78EA /* Debug */,
+				F40AC2B71F9CD23F004F78EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F40AC2B81F9CD23F004F78EA /* Build configuration list for PBXNativeTarget "Care Alert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40AC2B91F9CD23F004F78EA /* Debug */,
+				F40AC2BA1F9CD23F004F78EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F40AC2DE1F9CD31F004F78EA /* Build configuration list for PBXNativeTarget "Care Alert POC Watch App Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40AC2DF1F9CD31F004F78EA /* Debug */,
+				F40AC2E01F9CD31F004F78EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F40AC2E21F9CD31F004F78EA /* Build configuration list for PBXNativeTarget "Care Alert POC Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40AC2E31F9CD31F004F78EA /* Debug */,
+				F40AC2E41F9CD31F004F78EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F40AC29A1F9CD23F004F78EA /* Project object */;
+}
