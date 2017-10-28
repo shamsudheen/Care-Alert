@@ -44,6 +44,9 @@
 
 //location vars
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLGeocoder        *geocoder;
+@property (nonatomic, assign)  BOOL             isGeocodeLocationReversed;
+
 
 @end
 
@@ -51,6 +54,8 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+    
+    _geocoder = [[CLGeocoder alloc] init];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -206,7 +211,6 @@
      completion:^(HKCorrelationQuery *query, NSArray *correlations, NSError *error) {
          if (correlations == nil) {
               _activityError = error;
-             _responseTracker.isBloodpressureReceived = YES;
          }
          for (HKCorrelation *correlation in correlations) {
              HKQuantitySample *systolicSample = [[correlation objectsForType:systolicType] anyObject];
@@ -219,8 +223,8 @@
              NSString *bloodpressureSystolic  = [[NSString alloc] initWithFormat:@"Systolic-%f mmHg ",systolicd];
              NSString *bloodpressureDiastolic = [[NSString alloc] initWithFormat:@"Diastolic-%f mmHg",diastolicd];
              _bloodpressure = [[bloodpressureSystolic stringByAppendingString:bloodpressureSystolic] stringByAppendingString:bloodpressureDiastolic];
-             _responseTracker.isBloodpressureReceived = YES;
          }
+         _responseTracker.isBloodpressureReceived = YES;
          [self notifyServerAPI];
      }];
     
@@ -282,22 +286,24 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    if (locations.count > 0) {
-        CLLocation *currentLocation = [locations objectAtIndex:0];
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
-        [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-            if (!(error)) {
-                CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                _location = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-                 _responseTracker.isLocationReceived = YES;
-            }
-            else {
-                _activityError = error;
-                 _responseTracker.isLocationReceived = YES;
-            }
+    if (_isGeocodeLocationReversed == NO) {
+        if (locations.count > 0) {
+            _isGeocodeLocationReversed = YES;
             
-            [self notifyServerAPI];
-        }];
+            CLLocation *currentLocation = [locations objectAtIndex:0];
+            [_geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+                if (!(error)) {
+                    CLPlacemark *placemark = [placemarks objectAtIndex:0];
+                    _location = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+                    _responseTracker.isLocationReceived = YES;
+                }
+                else {
+                    _activityError = error;
+                    _responseTracker.isLocationReceived = YES;
+                }
+                [self notifyServerAPI];
+            }];
+        }
     }
 }
 
@@ -330,6 +336,8 @@
     _location      = @"";
     _heartBeatRate = @"";
     _bloodpressure = @"";
+    
+    _isGeocodeLocationReversed = NO;
 }
 
 - (void)notifyServerAPI {
