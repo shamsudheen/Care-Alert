@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMotionUsageDescription</key>
-	<string>to get your movement.</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>to get your health data.</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>to get your health data.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -23,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0</string>
+	<string>5.0</string>
 	<key>CFBundleVersion</key>
-	<string>30</string>
+	<string>50</string>
 	<key>LSApplicationCategoryType</key>
 	<string>to get your location details</string>
 	<key>NSExtension</key>
@@ -38,12 +32,18 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>to get your health data.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>to get your health data.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>to get your location details</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>to get your location details</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>to get your location details</string>
+	<key>NSMotionUsageDescription</key>
+	<string>to get your movement.</string>
 	<key>WKExtensionDelegateClassName</key>
 	<string>ExtensionDelegate</string>
 </dict>
