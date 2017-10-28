@@ -35,8 +35,8 @@
 //health-kit vars
 @property (nonatomic, strong)  HKHealthStore    *healthStore;
 @property (nonatomic, strong)  HKWorkoutSession *workoutSession;
-@property (nonatomic, strong)  HKQuery          *heartbeatQuery;
-@property (nonatomic, strong)  HKQuery          *bloodpressureQuery;
+@property (nonatomic, strong)  HKAnchoredObjectQuery  *heartbeatQuery;
+@property (nonatomic, strong)  HKCorrelationQuery     *bloodpressureQuery;
 @property (nonatomic, assign)  BOOL             isHealthMonitorAllowed;
 
 //motion vars
@@ -170,7 +170,7 @@
         }
     });
 }
-
+/*
 - (void)updateHeartbeat:(NSDate *)startDate {
     
     //first, create a predicate and set the endDate and option to nil/none
@@ -181,23 +181,125 @@
     
     //ok, now, create a HKAnchoredObjectQuery with all the mess that we just created.
     _heartbeatQuery = [[HKAnchoredObjectQuery alloc] initWithType:object predicate:predicate anchor:0 limit:0 resultsHandler:^(HKAnchoredObjectQuery *query, NSArray<HKSample *> *sampleObjects, NSArray<HKDeletedObject *> *deletedObjects, HKQueryAnchor *newAnchor, NSError *error) {
-        if (!error && sampleObjects.count > 0) {
-            HKQuantitySample *sample = (HKQuantitySample *)[sampleObjects objectAtIndex:0];
-            HKQuantity *quantity = sample.quantity;
-            _heartBeatRate = [NSString stringWithFormat:@"%f  bpm", [quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]]];
-            _responseTracker.isHeartBeatReceived = YES;
+        if (nil == error) {
+            if (sampleObjects.count > 0) {
+                HKQuantitySample *sample = (HKQuantitySample *)[sampleObjects objectAtIndex:0];
+                HKQuantity *quantity = sample.quantity;
+                _heartBeatRate = [NSString stringWithFormat:@"%f  bpm", [quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]]];
+                _responseTracker.isHeartBeatReceived = YES;
+                [self notifyServerAPI];
+            }
         }else{
             _activityError = error;
             _responseTracker.isHeartBeatReceived = YES;
+            [self notifyServerAPI];
         }
         
-        [self notifyServerAPI];
+        __weak typeof(ResponseTracker) *weakResponseTracker = _responseTracker;
+        __weak typeof(self) weakSelf = self;
+        [_heartbeatQuery setUpdateHandler:^(HKAnchoredObjectQuery *query, NSArray<HKSample *> *SampleArray, NSArray<HKDeletedObject *> *deletedObjects, HKQueryAnchor *Anchor, NSError *error) {
+            HKQuantitySample *sample = (HKQuantitySample *)[SampleArray objectAtIndex:0];
+            HKQuantity *quantity = sample.quantity;
+            _heartBeatRate = [NSString stringWithFormat:@"%f  bpm", [quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]]];
+            weakResponseTracker.isHeartBeatReceived = YES;
+            [weakSelf notifyServerAPI];
+        }];
     }];
 
     [_healthStore executeQuery:_heartbeatQuery];
 }
+*/
+- (void)updateHeartbeat:(NSDate *)startDate {
+    
+    __weak typeof(self) weakSelf = self;
+    __weak typeof(ResponseTracker) *weakResponseTracker = _responseTracker;
+    
+    //first, create a predicate and set the endDate and option to nil/none 
+    NSPredicate *Predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:nil options:HKQueryOptionNone];
+    
+    //Then we create a sample type which is HKQuantityTypeIdentifierHeartRate
+    HKSampleType *object = [HKSampleType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    
+    //ok, now, create a HKAnchoredObjectQuery with all the mess that we just created.
+    _heartbeatQuery = [[HKAnchoredObjectQuery alloc] initWithType:object predicate:Predicate anchor:0 limit:0 resultsHandler:^(HKAnchoredObjectQuery *query, NSArray<HKSample *> *sampleObjects, NSArray<HKDeletedObject *> *deletedObjects, HKQueryAnchor *newAnchor, NSError *error) {
+        
+        if (!error) {
+            
+            if (sampleObjects.count > 0) {
+                HKQuantitySample *sample = (HKQuantitySample *)[sampleObjects objectAtIndex:0];
+                HKQuantity *quantity = sample.quantity;
+                
+                _heartBeatRate = [NSString stringWithFormat:@"%f  bpm", [quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]]];
+                
+                _activityError = error;
+                _responseTracker.isHeartBeatReceived = YES;
+                [self stopWorkout];
+                [self notifyServerAPI];
+            }
+            
+        }else{
+           
+            _activityError = error;
+            _responseTracker.isHeartBeatReceived = YES;
+            [self stopWorkout];
+            [self notifyServerAPI];
+        }
+        
+    }];
+    
+    //wait, it's not over yet, this is the update handler
+    [_heartbeatQuery setUpdateHandler:^(HKAnchoredObjectQuery *query, NSArray<HKSample *> *SampleArray, NSArray<HKDeletedObject *> *deletedObjects, HKQueryAnchor *Anchor, NSError *error) {
+        
+        if (!error) {
+            
+            if (SampleArray.count > 0) {
+                HKQuantitySample *sample = (HKQuantitySample *)[SampleArray objectAtIndex:0];
+                HKQuantity *quantity = sample.quantity;
+                
+                _heartBeatRate = [NSString stringWithFormat:@"%f  bpm", [quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]]];
+                
+                _activityError = error;
+                weakResponseTracker.isHeartBeatReceived = YES;
+                [weakSelf stopWorkout];
+                [weakSelf notifyServerAPI];
+            }
+            
+        }else{
+            
+            _activityError = error;
+            weakResponseTracker.isHeartBeatReceived = YES;
+            [weakSelf stopWorkout];
+            [weakSelf notifyServerAPI];
+        }
+    }];
+    
+    //now excute query and wait for the result showing up in the log. Yeah!
+    [_healthStore executeQuery:_heartbeatQuery];
+}
+
 
 - (void)updateBloodPressure:(NSDate *)startDate {
+    
+    NSSet *querySet = [NSSet setWithObjects:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic],
+                       [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic], nil];
+    
+    for (HKQuantityType *quantityType in querySet) {
+        _bloodpressureQuery = [[HKSampleQuery alloc] initWithSampleType:quantityType predicate:nil limit:HKObjectQueryNoLimit sortDescriptors:nil resultsHandler:^(HKSampleQuery *query, NSArray *results, NSError *error) {
+            if (results && results.count > 0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // Do something with results, which will be an array of HKQuantitySample objects
+                });
+            }
+        }];
+        
+        
+      // [_bloodpressureQuery setUpdateHandl
+    }
+    
+    [_healthStore executeQuery:_bloodpressureQuery];
+                                
+    /*
+    
     
     HKQuantityType *systolicType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic];
     HKQuantityType *diastolicType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic];
@@ -228,7 +330,7 @@
          [self notifyServerAPI];
      }];
     
-    [self.healthStore executeQuery:_bloodpressureQuery];
+    [self.healthStore executeQuery:_bloodpressureQuery];*/
 }
 
 - (void)updateUserMovement {
