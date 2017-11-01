@@ -46,7 +46,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLGeocoder        *geocoder;
 @property (nonatomic, assign)  BOOL             isGeocodeLocationReversed;
-
+@property (nonatomic, assign)  int              geocodeReversedErrorCount;
 
 @end
 
@@ -328,6 +328,8 @@
 
 - (void)startTrackingCurrentLocation {
     
+    _geocodeReversedErrorCount =  0;
+    
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         if (@available(watchOS 3.0, *)) {
@@ -362,7 +364,14 @@
                 }
                 else {
                     _activityError = error;
-                    _responseTracker.isLocationReceived = YES;
+                    
+                    _geocodeReversedErrorCount++;
+                    
+                    if (_geocodeReversedErrorCount > 3) {
+                        _responseTracker.isLocationReceived = YES;
+                    }else {
+                        _isGeocodeLocationReversed = NO;
+                    }
                 }
                 [self notifyServerAPI];
             }];
@@ -401,6 +410,8 @@
     _bloodpressure = @"";
     
     _isGeocodeLocationReversed = NO;
+    
+    _geocodeReversedErrorCount =  0;
 }
 
 - (void)notifyServerAPI {
@@ -414,6 +425,7 @@
         _responseTracker.isServerNotified = YES;
         
         NSMutableDictionary *postInfo = [self prepareAPIPostParameter];
+        
         [self notifyServerWithHealthInfo:postInfo];
     }
 }
